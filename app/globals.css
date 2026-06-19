@@ -1,26 +1,35 @@
 @import "tailwindcss";
 
+/* ── Denver Spotlight brand tokens (white-label: swap these per org) ── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --ds-primary: #e000ff;
+  --ds-secondary: #d9d9d9;
+  --ds-bg: #000000;
+  --ds-surface: #09090b;
+  --ds-card: #121218;
+  --ds-hero-gradient: linear-gradient(135deg, #9b00ff 0%, #e000ff 50%, #ff4af2 100%);
 }
 
+/* Expose tokens to Tailwind utilities (bg-primary, text-primary, font-heading…) */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-primary: var(--ds-primary);
+  --color-secondary: var(--ds-secondary);
+  --color-background: var(--ds-bg);
+  --color-surface: var(--ds-surface);
+  --color-card: var(--ds-card);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-heading: var(--font-cinzel);
+  --font-ui: var(--font-inter);
+  --font-impact: var(--font-anton);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--ds-bg);
+  color: #ffffff;
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+}
+
+/* Hero brand gradient */
+.hero-gradient {
+  background: var(--ds-hero-gradient);
 }
